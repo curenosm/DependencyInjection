@@ -6,7 +6,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Primary // Por defecto se va a inyectar este Bean al implementar sin Qualifier
-@Profile("en") // Si hay mas de un servicio Primary, se pueden usar profiles para decidir cual usar
+// @Profile("en") // Si hay mas de un servicio Primary, se pueden usar profiles para decidir cual usar
+@Profile({"en", "default"}) // Si le pasamos un Array con un segundo elemento llamado "default"
+// lo va a elegir en caso de que no se especifique el Profile en application.properties
 public class PrimaryGreetingService implements GreetingService{
 
     @Override
