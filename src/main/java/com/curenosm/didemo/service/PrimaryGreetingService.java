@@ -1,5 +1,6 @@
 package com.curenosm.didemo.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
@@ -11,8 +12,15 @@ import org.springframework.stereotype.Service;
 // lo va a elegir en caso de que no se especifique el Profile en application.properties
 public class PrimaryGreetingService implements GreetingService{
 
+    private GreetingRepository greetingRepository;
+
+    @Autowired
+    public PrimaryGreetingService(GreetingRepository greetingRepository){
+        this.greetingRepository = greetingRepository;
+    }
+
     @Override
     public String sayGreeting() {
-        return "Hello, from the primary greeting service!";
+        return greetingRepository.getEnglishGreeting();
     }
 }
