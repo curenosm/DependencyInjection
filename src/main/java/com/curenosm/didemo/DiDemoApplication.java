@@ -7,8 +7,10 @@ import com.curenosm.didemo.controller.SetterInjectedController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
+// @ComponentScan(basePackages = {"com.curenosm.didemo"}) // Desde donde vas a escanear los beans
 public class DiDemoApplication {
 
     public static void main(String[] args) {
