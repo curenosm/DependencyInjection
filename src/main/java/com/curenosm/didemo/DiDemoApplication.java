@@ -4,6 +4,7 @@ import com.curenosm.didemo.controller.ConstructorInjectedController;
 import com.curenosm.didemo.controller.MyController;
 import com.curenosm.didemo.controller.PropertyInjectedController;
 import com.curenosm.didemo.controller.SetterInjectedController;
+import com.curenosm.didemo.examplebeans.FakeDataSource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -28,14 +29,20 @@ public class DiDemoApplication {
         PropertyInjectedController pIC = ctx.getBean(PropertyInjectedController.class);
         // NoSuchBeanDefinitionException si no inyectamos la dependencia, para eso
         // Hay que anotarla en el controlador con Autowired
-        System.out.println(pIC.sayHello());
 
         // Lo mismo para los demás controladores
         SetterInjectedController sIC = ctx.getBean(SetterInjectedController.class);
-        System.out.println(sIC.sayHello());
 
         ConstructorInjectedController cIC = ctx.getBean(ConstructorInjectedController.class);
-        System.out.println(cIC.sayHello());
+
+        // System.out.println(pIC.sayHello());
+        // System.out.println(sIC.sayHello());
+        // System.out.println(cIC.sayHello());
+
+        FakeDataSource fakeDataSource = (FakeDataSource) ctx.getBean(FakeDataSource.class);
+        System.out.println(fakeDataSource.getUser());
+        System.out.println(fakeDataSource.getPassword());
+        System.out.println(fakeDataSource.getUrl());
     }
 
 }
