@@ -1,15 +1,34 @@
 package com.curenosm.didemo.config;
 
-import com.curenosm.didemo.examplebeans.FakeDataSource;
-import com.curenosm.didemo.examplebeans.FakeJmsBroker;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.annotation.PropertySources;
+import com.curenosm.didemo.examplebeans.*;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.context.annotation.*;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.env.Environment;
+
+/* ORDEN DE OBTENCIÓN Y SUSTITUCION DE PROPIEDADES (ARRIBA MÁYOR PRIORIDAD)
+* 1. Devtools global settings properties (~/.spring-boot-devtools.properties)
+* 2. @TestPropertySource annotations
+* 3. @SpringBootTest#properties
+* 4. Command line arguments
+* 5. Properties from SPRING_APPLICATION_JSON (JSON como variable de entorno o del sistema)
+* 6. ServletConfig init parameters
+* 7. ServletContext init paramenters
+* 8. JNDI attributes from java:comp/env
+* 9. Java system properties ( System.getProperties() )
+* 10. OS Environment variables
+* 11. Un RandomValuePropertySource que tenga propiedades solo en random.*
+* 12. Profile specific application properties fuera del jar empaquetado (application-{properties}.properties y
+*                                                                       variantes de YAML)
+* 13. Profile specific application properties dentro del jar empaquetado (application-{properties}.properties y
+*                                                                       variantes de YAML)
+* 14. Application properties fuera del jar empaquetado (application.properties y variantes de YAML)
+* 15. Application properties dentro del jar empaquetado (application.properties y variantes de YAML)
+* 16. Anotaciones PropertySource en @Configuration classes
+* 17. Default properties especificadas usando SpringApplication.setDefaultProperties
+*
+* */
+
 
 @Configuration
 // @PropertySource({"classpath:datasource.properties", "classpath:jms.properties"})
