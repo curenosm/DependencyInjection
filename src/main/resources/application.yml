@@ -1,0 +1,5 @@
+curenosm:
+  jms:
+    username: JMS Username
+    password: password
+    url: SomeURL

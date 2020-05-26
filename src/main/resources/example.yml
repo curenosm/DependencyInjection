@@ -1,0 +1,37 @@
+# This is a comment
+
+name: Misael
+
+names: # Another comment
+  - Misael
+  - Juan
+  - Carlos
+  - Gabriel
+  - Jose
+
+pound_sign: "#"
+
+book:
+  author: Joe Buck
+  publisher: random house
+
+truth: yes
+
+another_truth: True
+
+more_true: true
+
+false: no # No, false, FALSE
+
+string_val: "It's a string"
+
+colon_string: "colon: yml does like this"
+
+include_new_lines: | # Cuenta los saltos de linea
+  asfasf asfasfa asfasf
+  asfasf asfasf asfasfas
+  asfasf aSFASFASas  asf
+
+ignore_new_lines: > # Un solo string largo
+  akjshfak  kjhasfkjahsk  kjaskf
+  aksjfhka akjshfkajs kajhfkj
